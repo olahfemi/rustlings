@@ -53,7 +53,7 @@ function vercomp($v1, $v2) {
 }
 
 $rustVersion = $(rustc --version).Split(" ")[1]
-$minRustVersion = "1.56"
+$minRustVersion = "1.70"
 if ((vercomp $rustVersion $minRustVersion) -eq 2) {
     Write-Host "WARNING: Rust version is too old: $rustVersion - needs at least $minRustVersion"
     Write-Host "Please update Rust with 'rustup update'"
@@ -78,7 +78,7 @@ Set-Location $path
 git checkout -q tags/$version
 
 Write-Host "Installing the 'rustlings' executable..."
-cargo install --force --path .
+cargo install --locked --force --path .
 if (!(Get-Command rustlings -ErrorAction SilentlyContinue)) {
     Write-Host "WARNING: Please check that you have '~/.cargo/bin' in your PATH environment variable!"
 }
