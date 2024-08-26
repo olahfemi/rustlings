@@ -1,15 +1,16 @@
-fn trim_me(input: &str) -> String {
+fn trim_me(input: &str) -> &str {
     // TODO: Remove whitespace from both ends of a string.
-    input.to_string();
-    let s = input.trim();
-    s.to_string()
+    input.trim()
 }
 
 fn compose_me(input: &str) -> String {
     // TODO: Add " world!" to the string! There are multiple ways to do this.
-    let mut s = input.to_string();
-    s.push_str(" world!");
-    s
+
+    let mut owned_string = input.to_owned();
+    let borrowed_string = " world!";
+
+    owned_string.push_str(borrowed_string);
+    owned_string
 }
 
 fn replace_me(input: &str) -> String {

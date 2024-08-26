@@ -2,10 +2,11 @@
 enum Message {
     // TODO: Define a few types of messages as used below.
     Resize,
-    Move,
+    Move, 
     Echo,
     ChangeColor,
-    Quit
+    Quit,
+
 }
 
 fn main() {
